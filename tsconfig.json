@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "iot-chns-angular-sdk": [
+        "dist/iot-chns-angular-sdk/iot-chns-angular-sdk",
+        "dist/iot-chns-angular-sdk"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

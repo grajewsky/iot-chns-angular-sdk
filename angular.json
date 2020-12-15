@@ -1,6 +1,47 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "iot-chns-angular-sdk": {
+      "projectType": "library",
+      "root": "projects/iot-chns-angular-sdk",
+      "sourceRoot": "projects/iot-chns-angular-sdk/src",
+      "prefix": "iot",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/iot-chns-angular-sdk/tsconfig.lib.json",
+            "project": "projects/iot-chns-angular-sdk/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/iot-chns-angular-sdk/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/iot-chns-angular-sdk/src/test.ts",
+            "tsConfig": "projects/iot-chns-angular-sdk/tsconfig.spec.json",
+            "karmaConfig": "projects/iot-chns-angular-sdk/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/iot-chns-angular-sdk/tsconfig.lib.json",
+              "projects/iot-chns-angular-sdk/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "iot-chns-angular-sdk"
 }
